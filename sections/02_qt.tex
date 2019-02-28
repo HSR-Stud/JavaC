@@ -1,0 +1,65 @@
+\includepdf[pages=-]{Praktika/prak03/Loesung.pdf}
+
+\section{Qt Manual Layout vs Layout Manager}
+\begin{multicols}{2}
+\textbf{Manuelles Layout} \\
+int main(int argc, char *argv[])\{ \\
+QApplication app(argc, argv); \\
+app.setFont(QFont("Times", 15)); \\
+QWidget wtop; \\
+Ui-Objekt-Name * objname = \\
+new Ui-Objekt-Name("TEXT"); \\
+objname$->$setGeometry(x, y, w, h); \\
+objname$->$setParent(\textbf{\&QWidget Name}); \\
+\textit{\% Name des QWidgets: hier wtop}\\
+objname$->$setAutoFillBackground(true); \\
+objname$->$setStyleSheet("background-color: \textbf{color;}"); \\
+wtop.show(); \\
+return app.exec(); \}\\
+
+Oft verwendete UI-Elemente: QLabel, QPushButton  \\
+Bei QPushButton muss setAutoFillBackground und setStyleSheet nicht angewendet werden, da es schon automatisch geschieht.
+\columnbreak \\
+\textbf{Layout mit Layout Manager} \\
+Layout-Typen: QHBoyLayout (horizontale Boxen), QVBoxLayout (verikale Boxen) \\
+\textbf{Layout-Typ}* \textbf{layoutName} = \\
+new \textbf{Layout-Typ}(\textbf{\&QWidget Name}); \\
+Ui-Objekt-Name * objname = new Ui-Objekt-Name("TEXT"); \\
+objname$->$setAutoFillBackground(true); \\
+objname$->$setStyleSheet("background-color: \textbf{color;}"); \\
+layoutName$->$addWidget(\textbf{name});
+
+\textbf{Sub-Layout hinzufügen:} \\
+Layout-Typ* sublayoutName = new Layout-Typ(); \\
+layoutName$->$addLayout(sublayoutName); \\
+
+\textbf{Unterschied zum Manuellen Layout:} \\
+- Nur Hauptlayout muss mit QWidget bekannt gemacht werden. \\
+- Sublayouts und Ui-Objekt wird via Hauptlayout mit QWidget-Objekt bekannt gemacht. \\
+- Objektgeometrie muss nicht selbst definiert werden \\
+\end{multicols}
+\begin{minipage}[t]{0.5\textwidth}
+\lstinputlisting{Praktika/prak03/Loesung/A2/SourceFiles/main.cpp}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\lstinputlisting{Praktika/prak03/Loesung/A3/SourceFiles/main.cpp}
+\end{minipage}
+
+
+\section{QObject auf Heap}
+\begin{minipage}[t]{0.32\textwidth}
+\subsection{main.cpp}
+\lstinputlisting{Praktika/prak02/Loesungen/A3/src/main.cpp}
+
+\end{minipage}
+\begin{minipage}[t]{0.32\textwidth}
+\subsection{Test.cpp}
+\lstinputlisting{Praktika/prak02/Loesungen/A3/src/Test.cpp}
+
+\end{minipage}
+\begin{minipage}[t]{0.32\textwidth}
+\subsection{Test.h}
+\lstinputlisting{Praktika/prak02/Loesungen/A3/src/Test.h}
+
+\end{minipage}
+

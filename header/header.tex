@@ -1,0 +1,106 @@
+%Schriftgr"osse, Layout, Papierformat, Art des Dokumentes
+\documentclass[10pt,a4paper,fleqn,headsepline,footsepline,twoside]{scrartcl}
+%Einstellungen der Seitenränder
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm,%
+includeheadfoot]{geometry}
+% Sprache, Zeichensatz, packages
+\usepackage[UTF8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel,varioref}
+\usepackage{amssymb,amsmath,graphicx,xcolor,lastpage,wrapfig,verbatim,paralist}
+\usepackage{scrlayer-scrpage}
+\usepackage{tabularx}
+\usepackage{framed}
+\usepackage{scrtime}
+\usepackage{multicol}
+
+%
+\setkomafont{pageheadfoot}{\small}
+%
+\setlength\parindent{0ex}
+\usepackage{paralist}
+\usepackage{listings}
+\newcommand{\FB}[1]{${\textcolor{red}{\mbox{\small{ S.#1}}}}$}
+
+%
+\RedeclareSectionCommands[
+  beforeskip=-.2\baselineskip,
+  afterskip=.1\baselineskip
+]{section,subsection,subsubsection}
+%
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\\nopagebreak}
+%usepackage{fancyhdr}
+%\usepackage{hyperref,fancyhdr,fancybox}
+%pdf info
+%\hypersetup{pdfauthor={\authorinfo},pdftitle={\titleinfo},colorlinks=false}
+%linkbordercolor=white
+\author{\authorinfo}
+\title{\titleinfo}
+\setkomafont{pageheadfoot}{\small}
+%
+%Kopf- und Fusszeile
+\lohead*{\titleinfo}
+\rohead*{\today \;\thistime}
+
+\rofoot*{\authorinfo}
+\cofoot*{}
+\lofoot*{Seite \thepage { }}  %von \pageref{LastPage}
+\lehead*{\today \;\thistime}
+\rehead*{\titleinfo}
+\lefoot*{\authorinfo}
+\cofoot[]{\includegraphics[width=1.6cm]{header/lizenz/small.png}} 
+\cefoot[]{\includegraphics[width=1.6cm]{header/lizenz/small.png}} 
+\refoot*{Seite \thepage { }}  %von \pageref{LastPage}
+
+%
+\pagestyle{scrheadings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lc}[1]{\textit{\texttt{#1}}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatierung der Codesequenzen			
+\definecolor{listinggray}{gray}{0.8}
+\definecolor{lbcolor}{rgb}{0.97,0.97,0.97}
+\lstset{
+backgroundcolor=\color{lbcolor},
+    tabsize=4,    
+%   rulecolor=,
+    	language=Java,
+        basicstyle=\scriptsize,        
+         %upquote=true,
+        aboveskip={0.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=false,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        %numbers=left,
+        showtabs=false,
+        extendedchars=true,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.026,0.512,0.095},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+        numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+%        \lstdefinestyle{C++}{language=C++,style=numbers}’.
+}     
+
+% Lizenz CC-BY-NC-SA
+%\input{header/lizenzen}
+%\newcommand{\lizenz}[2]
+%{
+%	\fancyfoot[C]{
+%		\includegraphics[width=1.6cm]{./header/lizenzen/#1/#2.png}
+%	}
+%}
+%\lizenz{cc-by-nc-sa}{small}
+%
+

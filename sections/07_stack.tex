@@ -1,0 +1,44 @@
+\section{Function Point Analyse}
+\begin{itemize}
+\itemsep0em
+\item EI = External Input
+\item EO = External Output
+\item EQ = External Query
+\item FTR = File Type Referenced
+\item DET = (ILF / ELF) Data Element Type - Für User Sichtbare Datenfelder
+\item RET = (ILF / ELF) Record Element Type - Zusammenhängende DET's ergeben ein RET
+\item ILF = Internal Logical File
+\item ELF = External Logical File
+\end{itemize}
+
+\textbf{Vorgehen:}
+\begin{enumerate}
+\itemsep0em
+\item Use Case Diagramm erstellen
+\item Datenelemente (ELF ILF) finden $\Rightarrow $ FP's für Datenelemente bestimmen
+\item Transaktionselemente Finden (EI EO EQ)$\Rightarrow $ FP's für Transaktionselemente finden
+\item Function Points berechnen
+\end{enumerate}
+\includegraphics[width=0.49\textwidth]{pics/retdet.png}
+\includegraphics[width=0.49\textwidth]{pics/FP.png}
+
+\includegraphics[width=0.99\textwidth]{pics/FP_2.png}
+\newpage
+\section{Stack}
+\begin{minipage}[t]{0.49\textwidth}
+\lstinputlisting{Praktika/prak07/Loesung/A3/Stack/main.cpp}
+
+\lstinputlisting{Praktika/prak07/Loesung/A3/Stack/main.cpp}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\lstinputlisting{Praktika/prak07/Loesung/A3/Stack/stack.h}
+\end{minipage}
+
+\begin{minipage}[t]{0.49\textwidth}
+\lstinputlisting{Praktika/prak07/Loesung/A3/Stack/stackwidget.cpp}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\lstinputlisting{Praktika/prak07/Loesung/A3/Stack/stacksignals.h}
+
+\lstinputlisting{Praktika/prak07/Loesung/A3/Stack/stackwidget.h}
+\end{minipage}

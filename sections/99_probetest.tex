@@ -1,0 +1,89 @@
+\section{Probetest}
+Alle in diesem Kapitel gemachten Äusserungen sind entweder Mitschriften von der Beratungswoche oder Codesnippets von anderen Quellen und nicht getestet. (Zeitmangel könnsch?)\\
+Es wird deshalb keine Garantie für dir Richtigkeit der folgenden Angaben gegeben.
+
+Bei den Überdeckungen sind folgende Unterscheidungen vorzunehmen:
+\begin{itemize}
+\itemsep0em
+\item Anweisungsüberdeckung: Jede Anweisung muss einmal durchlaufen werden
+\item Zweigüberdeckung: Jede Abzweigung muss einmal genommen werden
+\item Pfadüberdeckung: Jeder Code muss auf jede mögliche Art durchlaufen werden (Schleifen sind der Tod...)
+\end{itemize}
+
+Gegeben sind folgende Codesnippets:
+
+\begin{minipage}[t]{0.48\textwidth}
+\lstinputlisting{code/MessageQueueOrig.cpp}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\lstinputlisting{code/TransportLayerOrig.cpp}
+\end{minipage}
+
+Die Aufgabe sind nun folgende:
+\begin{enumerate}
+\itemsep0em
+\item Schreiben Sie einen Unit-Test, mit welchem Sie bei den Methoden add und get der Klasse MessageQueue von oben eine Zweigüberdeckung von $100\%$ erreichen. Sie können dazu eine oder mehrere Test-Funktionen schreiben.
+\lstinputlisting{code/TestMsgQueueAdd.cpp}
+
+\item Die Klasse TransportLayer soll für einen Unit-Test vorbereitet werden. Führen Sie das nötige Code-Refactoring durch. Sie können Änderungen direkt im obigen Code einfügen falls erwünscht.
+
+\begin{minipage}[t]{0.46\textwidth}
+\textbf{Originalcode}
+\lstinputlisting{code/TransportLayerOrig.cpp}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.46\textwidth}
+\textbf{Modifizierter Code}
+\lstinputlisting{code/TransportLayerModif.cpp}
+\end{minipage}
+
+Aufgrund der Dependencies muss die Klasse \texttt{Messagequeue} abstrahiert werden. Es wird auch die pure virtual Interfaceklasse \texttt{IMessageQueue} und die Mockklasse \texttt{MessageQueueMock} erzeugt. Dadurch kann der Transportlayer unabhängig vom Code der Queue getestet werden.
+
+\begin{minipage}[t]{0.46\textwidth}
+\textbf{Originalcode}
+\lstinputlisting{code/MessageQueueOrig.cpp}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.46\textwidth}
+\textbf{Modifizierter Code}
+\lstinputlisting{code/MessageQueueModif_2.cpp}
+\end{minipage}
+
+\begin{minipage}[t]{0.46\textwidth}
+\textbf{Mockklasse}
+\lstinputlisting{code/MessageQueueMock.cpp}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.46\textwidth}
+\textbf{IMessagequeue.h}
+\lstinputlisting{code/IMessageQueue.h}
+\end{minipage}
+
+
+\item Schreiben Sie einen kompletten Unit-Test für die Klasse TransportLayer. Dabei soll eine Anweisungsüberdeckung von $100\%$ erreicht werden.
+
+\lstinputlisting{code/TestTransportlayer.cpp}
+
+\end{enumerate}
+
+
+\subsection{Lauffähige Version vom Testen mit Mockklasse}
+\begin{minipage}[t]{0.48\textwidth}
+\lstinputlisting{code/doc/main.cpp}
+\lstinputlisting{code/doc/IMessageQueue.h}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\lstinputlisting{code/doc/MessageQueue.h}
+\lstinputlisting{code/doc/MessageQueue.cpp}
+\end{minipage}
+
+\begin{minipage}[t]{0.48\textwidth}
+\lstinputlisting{code/doc/MessageQueueMock.h}
+\lstinputlisting{code/doc/Transportlayer.cpp}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\lstinputlisting{code/doc/Transportlayer.h}
+\end{minipage}
